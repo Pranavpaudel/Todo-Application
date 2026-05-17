@@ -1,0 +1,302 @@
+/* ── Override index.css global interference ── */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  text-align: left !important;
+  border-inline: none !important;
+  display: block !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+}
+
+/* ── Layout ── */
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background: #f7f7f8;
+  padding: 28px 14px;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 20px 8px;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+.sidebar p {
+  margin: 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #6b7280;
+  transition: background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.sidebar p:hover {
+  background: #ede9fe;
+  color: #4f46e5;
+}
+
+/* ── Main area ── */
+.main {
+  flex: 1;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.main h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 24px;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+/* ── Input bar ── */
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input-container input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.input-container input::placeholder {
+  color: #9ca3af;
+}
+
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  background: #6366f1;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.input-container button:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.input-container button:disabled {
+  background: #c7d2fe;
+  cursor: not-allowed;
+}
+
+/* ── Todo list ── */
+.todoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #f0f0f2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s;
+}
+
+.todoItem:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+/* Circular checkbox */
+.todoItem input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+  position: relative;
+  background: #ffffff;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.todoItem input[type="checkbox"]:checked {
+  background: #6366f1;
+  border-color: #6366f1;
+}
+
+.todoItem input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid #ffffff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.todoItem span {
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Completed */
+.completed {
+  text-decoration: line-through;
+  color: #9ca3af !important;
+}
+
+/* ── All buttons inside todo items ── */
+.todoItem button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb !important;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.todoItem button:hover {
+  background: #f3f4f6 !important;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+/* Important button — inactive (inline bg is blue) */
+.todoItem button[style*="blue"] {
+  background: #f9fafb !important;
+  color: #6b7280 !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Important button — active (inline bg is red) */
+.todoItem button[style*="red"] {
+  background: #ede9fe !important;
+  color: #6366f1 !important;
+  border-color: #c4b5fd !important;
+}
+
+.todoItem button[style*="red"]:hover {
+  background: #ddd6fe !important;
+}
+
+/* Edit-mode inline input */
+.todoItem input[type="text"] {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1.5px solid #6366f1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  color: #111827;
+  background: #fafafa;
+}
+
+/* Save button in edit mode — sits immediately after the edit text input */
+.todoItem input[type="text"] + button {
+  width: auto;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #6366f1 !important;
+  color: #ffffff !important;
+  border-color: #6366f1 !important;
+}
+
+.todoItem input[type="text"] + button:hover {
+  background: #4f46e5 !important;
+}
+
+/* ── Empty state ── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  gap: 8px;
+  text-align: center;
+}
+
+.empty h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+.empty p {
+  font-size: 13.5px;
+  color: #9ca3af;
+  margin: 0;
+}
